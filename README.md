@@ -1,8 +1,10 @@
 # Understanding-Multi-Stage-Builds
 Code for the blog 'Understanding Multi-Stage Builds'. It can be found here at https://cloudnativeislamabad.hashnode.dev/understanding-docker-multi-stage-build
-To run the container run the following commands
-0.  Considering the Flask Application is not built run this command to check if the program runs.
-0a. python -m flask --app .\app.py run
+To run the container run the following commands.
+
+0a.  Considering the Flask Application is not built run this command to check if the program runs.
+
+0b. python -m flask --app .\app.py run.
 
 If Flask Application works then use these commands.
 1.  docker build -t docker-flask .
