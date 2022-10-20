@@ -1,0 +1,18 @@
+# init a base image (Alpine is small Linux distro)
+FROM python:3.6.1-alpine AS base
+#update pip to minimize dependency errors
+RUN pip install --upgrade pip
+
+
+# define the present working directory
+COPY . /docker-flask/
+WORKDIR /docker-flask
+# run pip to install the dependencies of the flask app
+RUN pip install -r requirements.txt
+
+FROM python:3.6.1-alpine
+COPY --from=base /docker-flask/ /docker-flask
+WORKDIR /docker-flask
+
+# define the command to start the container
+CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
